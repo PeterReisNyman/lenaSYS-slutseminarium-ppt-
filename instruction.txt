@@ -1,0 +1,10 @@
+Vad händer om jag inte kan komma om jag har giltig frånvaroorsak?
+
+De som inte deltar i slutseminariet kommer att ges en kompletterande uppgift att producera en powerpoint. Eftersom möjligheter till frågor saknas så måste denna powerpoint vara mera detaljerad än det som sägs på presentationen. Denna powerpoint behöver fokusera på vad du har jobbat med.
+
+
+För varje issue/commit skall hash på commit eller issuenummer vara tydligt synligt.
+Powerpoint skall inte bara vara slides för varje issue / commit med några få rader text(små issues eller commits med bara minimala förändringar av koden undantas)
+Varje issue skall ha screenshot på slutresultatet och om det är stor skllnad jämfört med utgångsläget gärna screenshots på både slutresultat och utgångsläget.
+Varje issue skall ha utförlig text som beskriver vad som genomförts och hur slutresultatet fungerar. Gärna beskrivet före och efter förbättringen.
+Beskrivning av mängden förändrad kod.

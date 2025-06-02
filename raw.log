@@ -1,0 +1,265 @@
+(base) peternyman@Peters-MacBook-Air Dagbok_SW % for f in *.txt; do
+  printf '\n=== %s ===\n' "$f"                        
+  cat -- "$f"                                             
+done
+
+
+=== log-.txt ===
+Thu 15 May 2025 — Pull-request #17651 (HGustavs/LenaSYS)
+
+You rewrote **sectionedService.md** inside *DuggaSys/microservices/Microservices Documentation*:
+
+* Stripped out 1 127 lines of obsolete, multi-service notes that had ballooned into a wall of text.
+* Added 79 crisp lines that properly document just the two micro-services that matter here:
+
+  * **retrieveAllCourseVersions\_ms.php** – what it does, the required/optional parameters, call pattern (GET/POST), and the JSON it spits out.
+  * **retrieveSectionedService\_ms.php** – same level of detail, plus a short example call.
+* Net effect: a 1 206-line file slimmed down to something maintainable and actually readable. ([GitHub][1], [GitHub][2])
+
+[1]: https://github.com/HGustavs/LenaSYS/commit/2562b79.patch "github.com"
+[2]: https://github.com/HGustavs/LenaSYS/pull/17651/commits "Document retrieveAllCourseVersions_ms.php and retrieveSectionedServic… by a23petny · Pull Request #17651 · HGustavs/LenaSYS · GitHub"
+
+=== log-2025-04-07.txt ===
+today i fixed my computer to run the server [had mac so there were some permisons problems], and looked a litle at the difrent old comits and helped to filter which was in our group and which was not
+
+=== log-2025-04-08.txt ===
+Looked at old branches, and wrote them in our Discord.
+
+=== log-2025-04-09.txt ===
+I added an issue that points to backend-models/microservices/microservice_priority.md which has multiple issues.
+https://github.com/HGustavs/LenaSYS/issues/16355
+
+
+I added a new issues, where I have problems with the graph of Demo-Course G420 ST20 dose not fill my entier screen. It was this issue https://github.com/HGustavs/LenaSYS/issues/16358
+
+
+=== log-2025-04-10.txt ===
+Issue Reference: https://github.com/HGustavs/LenaSYS/issues/16385
+
+What I did:
+ - looked at https://github.com/search?q=repo%3AHGustavs%2FLenaSYS%20include%20retrieveUsername_ms.php&type=code
+
+Where I fixed the issue:
+  - accessedService/retrieveAccessedService_ms.php
+  - fileedService/updateFileLink_ms.php
+  - courseedService/updateCourseVersion_ms.php
+  - courseedService/createCourseVersion_ms.php
+  - courseedService/updateCourse_ms.php
+  - courseedService/createNewCourse_ms.php
+  - courseedService/copyCourseVersion_ms.php
+  - sectionedService/updateCourseVersion_sectioned_ms.php
+  - sectionedService/createListEntry_ms.php
+  - sharedMicroservices/createNewCodeExample_ms.php
+  - sharedMicroservices/createNewListEntry_ms.php
+
+
+=== log-2025-04-11.txt ===
+Completed issue on 11-04-2025: Document inverse dependencies: createNewCourse_ms.php #16452 (https://github.com/HGustavs/LenaSYS/issues/16452)
+
+=== log-2025-04-14.txt ===
+Approved PR #16500: getCourseed has no inverse dependencies – https://github.com/HGustavs/LenaSYS/pull/16500
+
+=== log-2025-04-15.txt ===
+2025-04-15 08:34:36 - Approved PR #16575 (https://github.com/HGustavs/LenaSYS/pull/16575). Checked for inverse dependencies in createDugga_ms.php — none found.
+
+=== log-2025-04-16.txt ===
+today i completed this https://github.com/HGustavs/LenaSYS/issues/16659 issue and subsequently created a pr. this was content of the issue:
+Document inverse dependencies: readGroupValues_ms.php AND readUserDuggaFeedback_ms.php #16659 
+We need to go through all the microservices and list their inverse dependencies. This is so we later can remove the includes. After finding all the inverse dependencies for these two files in /sectionedService, add it to the documentation-file with file DuggaSys/microservices/Microservices_inverse_dependencies.md
+
+i found no inverse depnedacys in both files
+
+=== log-2025-04-17.txt ===
+today i did the following: 
+## Inverse Dependencies
+
+### insertIntoSQLite_ms.php
+
+- Found 1 inverse dependency in /gitCommitService
+
+### getCourseID_ms.php
+
+- Found 0 inverse dependencies in /gitCommitService
+
+This issue is being tracked at: https://github.com/HGustavs/LenaSYS/issues/16731#event-17302012702
+
+=== log-2025-04-18.txt ===
+today I acepted the #16778 as I did not either find any dependecys https://github.com/HGustavs/LenaSYS/issues/16778
+
+=== log-2025-04-22.txt ===
+PR: https://github.com/HGustavs/LenaSYS/pull/16797
+
+Status: APPROVED
+
+I reviewed the changes in this PR and found no inverse dependencies that would cause issues.
+
+I approve these changes.
+
+Date: 2025-04-22
+
+=== log-2025-04-23.txt ===
+refactor(gitCommitService): replace legacy includes with cURL-based
+
+Removed every include_once statement from the seven *_ms.php files. Re-implemented data exchange with cURL:
+  - GET requests now use CURLOPT_RETURNTRANSFER true and json_decode the response.
+  - Fire-and-forget POST requests set CURLOPT_POST true and CURLOPT_RETURNTRANSFER false. Added \`header('Content-Type: application/json'); echo json_encode(...);\` to all receiving endpoints. Normalized \`$baseURL = "https://" . $_SERVER['HTTP_HOST'];\` path handling to keep dev/prod parity. Consolidated error reporting into consistent \`{ status, message }\` JSON objects. Deleted dead wrapper functions and ensured every script exits immediately after echoing JSON to prevent accidental output.
+
+Issue: https://github.com/HGustavs/LenaSYS/issues/16861#event-17368098803
+
+Re-engineer microservice clearGitFiles #16861  
+Follow the "coding standard for removing includes" for this file in folder /gitCommitService.  
+See /microservices/Microservices Documentation/microserviceCodingStandard.md
+
+=== log-2025-04-24.txt ===
+**Log – 2025-04-24**
+
+- Pulled latest `G2-2025-v4` branch of LenaSYS.  
+- Followed wiki’s *Docker installation instructions* start-to-finish on M-series Mac (macOS 14).  
+- Ran `docker-compose up --build`; build aborted with obsolete `version` warning and “no matching manifest for linux/arm64/v8” error (db/dbadmin images).  
+- Stack never started → posted failure report on GitHub issue #16823 with full error output.
+
+=== log-2025-04-28.txt ===
+Today I started my morning by booting up my local XAMPP/LenaSYS environment and opening the courseed.php page. After that, I pulled down the updated microservice documentation template from issue #16824 and compared it side-by-side with our existing sharedMicroservices.md. Once I’d confirmed the docs matched the template, I dove into the logUserEvent_ms.php and retrieveUsername_ms.php files under /microservices/sharedMicroservices/, making sure each parameter, type, and example aligned exactly with the spec. Finally, I left a comment on GitHub approving the documentation—everything looks good and is in sync with issue #16824.
+
+=== log-2025-04-29.txt ===
+Log for 2025-04-29
+
+Today, I implemented all the minimal changes required in my GitHub issue. The necessary adjustments were completed and committed.
+
+=== log-2025-04-30.txt ===
+Read “Resolved conflicts in sharedMicroservices documentation #17085” (https://github.com/HGustavs/LenaSYS/pull/17085) and approved.
+
+=== log-2025-05-02.txt ===
+**Dev log – 02 May 2025**
+
+* **Scoped issue #16861** → two PHP micro-services to refactor.
+* **clearGitFiles_ms.php**
+  * Killed all `include_once` lines.
+  * Added JSON header, POST guard, input validation.
+  * Re-wrote file-purge with a single DB txn, JSON exit.
+* **refreshGithubRepo_ms.php**
+  * Same boilerplate.
+  * Swapped legacy helpers for `curlService` calls: `shouldRefresh`, `downloadRepo`, `clearGitFiles`.
+  * Bubbled errors; deleted dead vars/echoes.
+* **Tests**: local curl hits + PHPUnit → all green.
+* Pushed branch **G2-2025-v5#16861** for review.
+
+=== log-2025-05-05.txt ===
+Today’s log – 2025-05-05
+• Reviewed PR #17164 (“Added edit functionality”)
+• Confirmed prepared statements and output escaping remain intact
+• Verified parameterised search path
+• CSRF protection absent; updateID validation missing
+• Requested developer to add CSRF token handling and numeric validation
+
+=== log-2025-05-06.txt ===
+Dev log – 06 May 2025
+
+• Reviewed PR #17163 and traced “undefined function callMicroserviceGET()” to missing
+  include of curlService.php across seven micro-services.
+• Drafted patch: re-add  
+  include_once "../../../DuggaSys/microservices/curlService.php";  
+  in each affected file.
+• Wrote succinct TODO comment for maintainers.
+• Posted review with patch instructions → https://github.com/HGustavs/LenaSYS/pull/17163#pullrequestreview-2819328131
+
+=== log-2025-05-07.txt ===
+### Daily Work Log — Wednesday, 7 May 2025
+
+09:00–09:30  Opened GitHub issue HGustavs/LenaSYS #17279 and confirmed scope.  
+09:30–10:00  Drafted task brief for documentation.  
+10:00–12:00  Reviewed template branch and parsed micro-service source.  
+13:00–15:00  Documented readCourseGroupsAndMembers_ms.php.  
+15:00–16:00  Documented readCourseVersions_ms.php and fixed linter warnings.  
+16:00–16:30  Committed and pushed docs branch.  
+16:30–16:45  Opened PR #17311 linking to issue #17279.  
+17:10–17:30  Planned follow-up fixes for tomorrow.
+
+Status: Documentation submitted via PR #17311; awaiting review.
+
+=== log-2025-05-08.txt ===
+I was sick today.
+
+=== log-2025-05-09.txt ===
+# Daily Work Log — Friday, 9 May 2025
+
+**Overview**
+
+Worked on documenting LenaSYS microservices and opened a PR to merge the new docs.
+
+---
+
+## Detailed activities
+
+* **Pull & prepare**
+  Synced local branch with the latest changes on `G2-2025-v6` to ensure a clean base.
+
+* **Authored documentation**
+  Wrote markdown documentation for eight microservices using the project’s standard template:
+
+  1. `clearGitFiles_ms.md`
+  2. `fetchOldToken_ms.md`
+  3. `getCourseID_ms.md`
+  4. `insertIntoSQLite_ms.md`
+  5. `newUpdateTime_ms.md`
+  6. `refreshCheck_ms.md`
+  7. `refreshGithubRepo_ms.md`
+  8. `retrieveGitCommitService_ms.md`
+
+* **Committed changes**
+  Commit `cf65ee6` — 284 additions, 0 deletions.
+
+* **Opened Pull Request**
+  PR **#17411** — *I've documented all 8 requested microservices using the specified template.*
+  Assigned reviewer: **a23edvto**.
+
+## Next steps
+
+* Monitor PR for review feedback.
+* Address any requested changes promptly.
+
+---
+
+**Links**
+
+* PR: https://github.com/HGustavs/LenaSYS/pull/17411
+* Commit: https://github.com/HGustavs/LenaSYS/commit/cf65ee6
+https://github.com/HGustavs/LenaSYS/issues/17363
+
+=== log-2025-05-12.txt ===
+Daily Work Log — Monday, 12 May 2025
+
+I worked on GitHub issue #17432, which required documenting the last two microservices in the sectioned-service folder. After reviewing the ticket, I duplicated the updated documentation template and produced two new files—removeListEntries_ms.md and reorderListEntries_ms.md—filling in accurate summaries, descriptions, parameter details, and expected responses. I then updated the sectioned-service documentation index to include both files.
+
+To make sure the branch is ready for review, I opened the compare view and confirmed the diff renders correctly:
+https://github.com/HGustavs/LenaSYS/compare/G2-2025-v6...G2-2025-v6%2317432?expand=1
+
+=== log-2025-05-13.txt ===
+today I Got a very big exercies and i am wating for tommorow to commit, so that i wont comit into the wrong version
+
+=== log-2025-05-15.txt ===
+Thu 15 May 2025 — Pull-request #17651 (HGustavs/LenaSYS)
+
+You rewrote **sectionedService.md** inside *DuggaSys/microservices/Microservices Documentation*:
+
+* Stripped out 1 127 lines of obsolete, multi-service notes that had ballooned into a wall of text.
+* Added 79 crisp lines that properly document just the two micro-services that matter here:
+
+  * **retrieveAllCourseVersions\_ms.php** – what it does, the required/optional parameters, call pattern (GET/POST), and the JSON it spits out.
+  * **retrieveSectionedService\_ms.php** – same level of detail, plus a short example call.
+* Net effect: a 1 206-line file slimmed down to something maintainable and actually readable. ([GitHub][1], [GitHub][2])
+
+[1]: https://github.com/HGustavs/LenaSYS/commit/2562b79.patch "github.com"
+[2]: https://github.com/HGustavs/LenaSYS/pull/17651/commits "Document retrieveAllCourseVersions_ms.php and retrieveSectionedServic… by a23petny · Pull Request #17651 · HGustavs/LenaSYS · GitHub"
+
+=== log-2025-05-20.txt ===
+2025-05-20 — Merged PR #17769 (massive micro-service docs + installer & UI overhaul), closing Issue #17432.
+https://github.com/HGustavs/LenaSYS/pull/17769
+https://github.com/HGustavs/LenaSYS/issues/17432
+
+=== log-2025-05-22.txt ===
+https://github.com/HGustavs/LenaSYS/issues/17433   https://github.com/HGustavs/LenaSYS/pull/17886
+
+=== log-2025-05-26.txt ===
+https://github.com/HGustavs/LenaSYS/issues/16350
+(base) peternyman@Peters-MacBook-Air Dagbok_SW % 
