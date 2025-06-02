@@ -1,0 +1,102 @@
+[
+  {
+    "id": "16452",
+    "title": "Completed issue on 11-04-2025: Document inverse dependencies: createNewCourse_ms.php",
+    "hash": "",
+    "date": "2025-04-11",
+    "stat": "",
+    "bullets": [],
+    "before": "img/16452_before.png",
+    "after": "img/16452_after.png"
+  },
+  {
+    "id": "16778",
+    "title": "as I did not either find any dependecys",
+    "hash": "",
+    "date": "2025-04-18",
+    "stat": "",
+    "bullets": [],
+    "before": "img/16778_before.png",
+    "after": "img/16778_after.png"
+  },
+  {
+    "id": "16824",
+    "title": "and compared it side-by-side with our existing sharedMicroservices.md",
+    "hash": "",
+    "date": "2025-04-28",
+    "stat": "",
+    "bullets": [],
+    "before": "img/16824_before.png",
+    "after": "img/16824_after.png"
+  },
+  {
+    "id": "17279",
+    "title": "and confirmed scope.",
+    "hash": "",
+    "date": "2025-05-07",
+    "stat": "",
+    "bullets": [],
+    "before": "img/17279_before.png",
+    "after": "img/17279_after.png"
+  },
+  {
+    "id": "17311",
+    "title": "linking to issue #17279.",
+    "hash": "",
+    "date": "2025-05-07",
+    "stat": "",
+    "bullets": [],
+    "before": "img/17311_before.png",
+    "after": "img/17311_after.png"
+  },
+  {
+    "id": "17311",
+    "title": "; awaiting review.",
+    "hash": "",
+    "date": "2025-05-07",
+    "stat": "",
+    "bullets": [],
+    "before": "img/17311_before.png",
+    "after": "img/17311_after.png"
+  },
+  {
+    "id": "cf65ee6",
+    "title": "284 additions, 0 deletions.",
+    "hash": "cf65ee6",
+    "date": "2025-05-09",
+    "stat": "",
+    "bullets": [],
+    "before": "img/cf65ee6_before.png",
+    "after": "img/cf65ee6_after.png"
+  },
+  {
+    "id": "17411",
+    "title": "** — *I've documented all 8 requested microservices using the specified template.*",
+    "hash": "",
+    "date": "2025-05-09",
+    "stat": "",
+    "bullets": [],
+    "before": "img/17411_before.png",
+    "after": "img/17411_after.png"
+  },
+  {
+    "id": "17432",
+    "title": ", which required documenting the last two microservices in the sectioned-service folder",
+    "hash": "",
+    "date": "2025-05-12",
+    "stat": "",
+    "bullets": [],
+    "before": "img/17432_before.png",
+    "after": "img/17432_after.png"
+  },
+  {
+    "id": "17769",
+    "title": "Merged PR",
+    "hash": "",
+    "date": "2025-05-20",
+    "stat": "",
+    "bullets": [],
+    "before": "img/17769_before.png",
+    "after": "img/17769_after.png"
+  }
+]
